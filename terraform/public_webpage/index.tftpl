@@ -2,6 +2,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
   <head>
     <title>Shorten a URL!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
   </head>
 
   <form id="myForm">
@@ -35,6 +36,10 @@
         } else {
             document.getElementById('returnedURL').innerHTML = event.target.responseText;
             document.getElementById('returnedURL').href = event.target.responseText;
+            var qr = new QRious({
+              element: document.getElementById('qr'),
+              value: event.target.responseText
+            });
         }
 
         });
@@ -68,15 +73,5 @@
 </div>
 
 <canvas id="qr"></canvas>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-<script>
-  (function() {
-    var qr = new QRious({
-      element: document.getElementById('qr'),
-      value: 'https://www.meepleprofessionals.com'
-    });
-  })();
-</script>
 
 </html>
