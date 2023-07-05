@@ -68,6 +68,15 @@
 <div class="container text-center">
 <a href= "" id="returnedURL" target="_blank" rel="noopener noreferrer"> </a>
 <p id="errorReturned"> <strong> </strong> </p>
+<script src="/path/to/qrious.js"></script>
+    <script>
+      (function() {
+        var qr = new QRious({
+          element: document.getElementById('qr'),
+          value: 'https://meeple.pro/'
+        });
+      })();
+    </script>
 </div>
 
 </html>
