@@ -4,9 +4,6 @@
     <title>Shorten a URL!</title>
   </head>
 
-
-
-
   <form id="myForm">
     <div class="container text-center">
         <h1>URL Shortener!</h1>
@@ -17,8 +14,17 @@
         <input id="submitUrl" type="submit" value="Shorten this URL!" />
     </div>
   </form>
+  
+  <script src="/path/to/qrious.js"></script>
 
   <script type="text/javascript">
+    (function() {
+      var qr = new QRious({
+        element: document.getElementById('qr'),
+        value: 'https://meeple.pro/'
+      });
+    })();
+
     window.addEventListener("load", () => {
     function sendData() {
         const XHR = new XMLHttpRequest();
@@ -68,15 +74,8 @@
 <div class="container text-center">
 <a href= "" id="returnedURL" target="_blank" rel="noopener noreferrer"> </a>
 <p id="errorReturned"> <strong> </strong> </p>
-<script src="/path/to/qrious.js"></script>
-    <script>
-      (function() {
-        var qr = new QRious({
-          element: document.getElementById('qr'),
-          value: 'https://meeple.pro/'
-        });
-      })();
-    </script>
 </div>
+
+<canvas id="qr"></canvas>
 
 </html>
