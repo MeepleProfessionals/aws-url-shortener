@@ -16,15 +16,16 @@
   </form>
   
   <script src="/path/to/qrious.js"></script>
-
-  <script type="text/javascript">
+  <script>
     (function() {
       var qr = new QRious({
         element: document.getElementById('qr'),
-        value: 'https://meeple.pro/'
+        value: 'https://github.com/neocotic/qrious'
       });
     })();
+  </script>
 
+  <script type="text/javascript">
     window.addEventListener("load", () => {
     function sendData() {
         const XHR = new XMLHttpRequest();
