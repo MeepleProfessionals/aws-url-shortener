@@ -2,10 +2,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
   <head>
     <title>Shorten a URL!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
   </head>
-
-
-
 
   <form id="myForm">
     <div class="container text-center">
@@ -36,8 +34,21 @@
         if (event.target.responseText.includes("System Error")) {
             document.getElementById('errorReturned').innerHTML = event.target.responseText;
         } else {
+            const canvas = document.getElementById("qr");
             document.getElementById('returnedURL').innerHTML = event.target.responseText;
             document.getElementById('returnedURL').href = event.target.responseText;
+            var qr = new QRious({
+              element: canvas,
+              value: event.target.responseText,
+              level: "H",
+              size: 500
+            });
+            const logo = new Image(30,30);
+            logo.src = 'https://www.meepleprofessionals.com/favicon-128x128.png';
+            const ctx = canvas.getContext("2d");
+            logo.onload = function(){
+              ctx.drawImage(logo, 175, 175, 150, 150);
+            }
         }
 
         });
@@ -66,8 +77,9 @@
 </script>
 
 <div class="container text-center">
-<a href= "" id="returnedURL" target="_blank" rel="noopener noreferrer"> </a>
-<p id="errorReturned"> <strong> </strong> </p>
+  <a href= "" id="returnedURL" target="_blank" rel="noopener noreferrer"> </a>
+  <p id="errorReturned"> <strong> </strong> </p>
+  <canvas id="qr"></canvas>
 </div>
 
 </html>
