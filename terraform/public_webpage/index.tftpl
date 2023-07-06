@@ -39,13 +39,15 @@
             document.getElementById('returnedURL').href = event.target.responseText;
             var qr = new QRious({
               element: canvas,
-              value: event.target.responseText
+              value: event.target.responseText,
+              level: "H",
+              size: 500
             });
             const logo = new Image(30,30);
             logo.src = 'https://www.meepleprofessionals.com/favicon-128x128.png';
             const ctx = canvas.getContext("2d");
             logo.onload = function(){
-                ctx.drawImage(logo, 35, 35, 30, 30);
+              ctx.drawImage(logo, 175, 175, 150, 150);
             }
         }
 
