@@ -20,6 +20,7 @@ resource "aws_s3_bucket_website_configuration" "public_bucket_website_config" {
     }
     redirect {
       host_name = "www.meepleprofessionals.com"
+      replace_key_with = ""
     }
   }
 
