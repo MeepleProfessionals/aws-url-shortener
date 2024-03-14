@@ -14,6 +14,16 @@ resource "aws_s3_bucket_website_configuration" "public_bucket_website_config" {
     key = "error.html"
   }
 
+  routing_rule {
+    condition {
+      http_error_code_returned_equals = 404
+    }
+    redirect {
+      host_name = "www.meepleprofessionals.com"
+      replace_key_prefix_with = "?x-not-found=/"
+    }
+  }
+
 }
 
 resource "aws_s3_bucket_acl" "public_bucket_acl" {
